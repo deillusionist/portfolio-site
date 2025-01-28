@@ -3,44 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>deillusionist</title>
+    <title>deillusionist | Ultrace Portfolio</title>
     <style>
         body {
             background-color: black;
             color: white;
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
         }
-        h1 {
-            margin-top: 20px;
-            font-size: 3rem;
-            letter-spacing: 2px;
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .portfolio {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .portfolio h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
         .gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            margin: 20px auto;
-            max-width: 1200px;
         }
         .gallery img {
             width: 300px;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.5);
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: gray;
         }
     </style>
 </head>
 <body>
-    <h1>deillusionist</h1>
-    <div class="gallery">
+    <header>
+        <h1>deillusionist</h1>
+    </header>
+    <section class="portfolio">
+        <h2>Automotive Photography</h2>
+        <div class="gallery">
         <img src="assets/DSC04446.jpg" alt="Car 1">
         <img src="assets/DSC04464.jpg" alt="Car 2">
         <img src="assets/DSC04375-Edit.jpg" alt="Car 3">
         <img src="assets/DSC04339-Enhanced-NR.jpg" alt="Car 4">
-    </div>
-</body>
-</html>
+        </div>
+    </section>
+    <footer>
+        <p>2025 | @deillusionist</p>
+    </footer>
