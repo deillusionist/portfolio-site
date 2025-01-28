@@ -18,29 +18,40 @@
             font-size: 3rem;
             letter-spacing: 2px;
         }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+        .slideshow {
+            position: relative;
+            max-width: 800px;
             margin: 20px auto;
-            max-width: 1200px;
         }
-        .gallery img {
-            width: 300px;
-            height: auto;
+        .slides {
+            display: none;
+            width: 100%;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .active {
+            display: block;
         }
     </style>
 </head>
 <body>
     <h1>deillusionist</h1>
-    <div class="gallery">
-        <img src="assets/DSC04339-Enhanced-NR.jpg" alt="Car 1">
-        <img src="assets/DSC04375-Edit.jpg" alt="Car 2">
-        <img src="assets/DSC04446.jpg" alt="Car 3">
-        <img src="assets/DSC04464.jpg" alt="Car 4">
+    <div class="slideshow">
+        <img src="assets/DSC04339-Enhanced-NR.jpg" class="slides active" alt="Car 1">
+        <img src="assets/DSC04375-Edit.jpg" class="slides" alt="Car 2">
+        <img src="assets/DSC04446.jpg" class="slides" alt="Car 3">
+        <img src="assets/DSC04464.jpg" class="slides" alt="Car 4">
     </div>
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slides');
+
+        function showSlides() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slideIndex = (slideIndex + 1) % slides.length;
+            slides[slideIndex].classList.add('active');
+        }
+
+        setInterval(showSlides, 3000); // Change image every 3 seconds
+    </script>
 </body>
 </html>
