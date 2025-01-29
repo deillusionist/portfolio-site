@@ -18,8 +18,23 @@
             justify-content: center;
             min-height: 100vh;
             overflow-y: auto;
+            position: relative;
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50%" font-size="80" fill="silver">✦</text></svg>'), auto;
         }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80vw;
+            height: 80vh;
+            background: radial-gradient(circle, rgba(0, 100, 255, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+            transform: translate(-50%, -50%);
+            filter: blur(80px);
+            z-index: -1;
+        }
+        
         header {
             text-align: center;
             padding: 40px 0;
@@ -30,14 +45,17 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
             animation: flicker 1.5s infinite alternate, sparkle 2s infinite alternate;
         }
+        
         @keyframes flicker {
             0% { opacity: 1; }
             100% { opacity: 0.8; }
         }
+        
         @keyframes sparkle {
             0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
             100% { text-shadow: 0 0 20px rgba(255, 255, 255, 1); }
         }
+        
         .portfolio {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -46,16 +64,19 @@
             max-width: 1200px;
             padding: 20px;
         }
+        
         .portfolio img {
             width: 100%;
             height: auto;
             border-radius: 0;
             transition: transform 0.4s ease, filter 0.4s ease;
         }
+        
         .portfolio img:hover {
             transform: scale(1.05);
             filter: brightness(1.05);
         }
+        
         .instagram {
             margin-top: 40px;
             font-size: 1.2rem;
@@ -63,6 +84,7 @@
             font-family: 'UnifrakturCook', cursive;
             color: silver;
         }
+        
         .instagram a {
             text-decoration: none;
             color: silver;
