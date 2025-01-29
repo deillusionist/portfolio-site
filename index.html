@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>deillusionist | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(to bottom, #000, #111);
+            background: linear-gradient(to bottom, #000, #003366, #000);
             color: white;
-            font-family: 'UnifrakturCook', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,14 +17,21 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            overflow: hidden;
         }
         header {
             text-align: center;
             padding: 40px 0;
-            font-size: 2.5rem;
+            font-size: 3rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            font-family: 'UnifrakturCook', cursive;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: flicker 1.5s infinite alternate;
+        }
+        @keyframes flicker {
+            0% { opacity: 1; }
+            100% { opacity: 0.8; }
         }
         .portfolio {
             display: grid;
@@ -41,8 +48,8 @@
             transition: transform 0.4s ease, filter 0.4s ease;
         }
         .portfolio img:hover {
-            transform: scale(1.05);
-            filter: brightness(1.2);
+            transform: scale(1.1);
+            filter: brightness(1.3);
         }
         .typography {
             font-size: 2rem;
@@ -50,17 +57,37 @@
             text-transform: uppercase;
             font-weight: bold;
             letter-spacing: 1.5px;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             margin-top: 20px;
+            font-family: 'Montserrat', sans-serif;
+            animation: fadeIn 2s ease-in-out;
         }
         .highlight {
             color: #ff4444;
             font-style: italic;
         }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .instagram {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .instagram a {
+            color: #ff4444;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        .instagram a:hover {
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
-    <header>deillusionist</header>
+    <header>DEILLUSIONIST</header>
     <section class="typography">
         <p>The <span class="highlight">vision</span> is <span class="highlight">limitless</span>.</p>
     </section>
@@ -69,6 +96,9 @@
         <img src="assets/DSC04464.jpg" alt="Car 2">
         <img src="assets/DSC04375-Edit.jpg" alt="Car 3">
         <img src="assets/DSC04339-Enhanced-NR.jpg" alt="Car 4">
+    </section>
+    <section class="instagram">
+        <p>Follow me on <a href="https://www.instagram.com/deillusionist" target="_blank">Instagram</a></p>
     </section>
 </body>
 </html>
