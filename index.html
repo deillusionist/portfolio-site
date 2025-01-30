@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=New+Rocker&family=UnifrakturCook:wght@700&family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(to bottom, #000, #4a4d59, #000);
+            background: linear-gradient(to bottom, #000, #2a2d3a, #0d1b2a, #001f3f, #000);
             color: white;
             font-family: 'Montserrat', sans-serif;
             margin: 0;
@@ -30,22 +30,22 @@
             width: 100%;
             height: 100%;
             background: url('https://www.transparenttextures.com/patterns/noise.png');
-            opacity: 0.2;
-            filter: blur(8px);
+            opacity: 0.25;
+            filter: blur(10px);
             pointer-events: none;
         }
         
-        /* Additional blurred electric blue gradient */
+        /* Additional blurred and distorted electric blue gradient */
         body::after {
             content: "";
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 80%;
-            height: 80%;
-            background: radial-gradient(circle, rgba(70, 130, 180, 0.3), transparent);
-            filter: blur(60px) contrast(1.2);
-            transform: translate(-50%, -50%) skewX(-10deg);
+            width: 90%;
+            height: 90%;
+            background: radial-gradient(circle, rgba(70, 130, 180, 0.4), transparent);
+            filter: blur(80px) contrast(1.3) distort(5px);
+            transform: translate(-50%, -50%) skewX(-15deg);
             pointer-events: none;
         }
         
@@ -83,17 +83,17 @@
             width: 100%;
             height: auto;
             border-radius: 0;
+            filter: brightness(0.8);
             transition: transform 0.4s ease, filter 0.4s ease;
             position: relative;
         }
         
         /* Glowing halo animation behind photos */
-        .portfolio img {
-            position: relative;
-        }
         .portfolio img:hover {
+            filter: brightness(1);
             transform: scale(1.05);
         }
+        
         .portfolio img:hover::after {
             content: "";
             position: absolute;
@@ -107,6 +107,21 @@
             pointer-events: none;
         }
         
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .portfolio img:hover::before {
+            content: "✦";
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            animation: twinkle 1.5s infinite alternate;
+        }
+        
         .instagram {
             margin-top: 40px;
             font-size: 1.2rem;
@@ -117,11 +132,6 @@
         .instagram a {
             text-decoration: none;
             color: silver;
-        }
-        
-        /* Cursor customization */
-        body {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50%" font-size="60" fill="silver">✦</text></svg>'), auto;
         }
     </style>
 </head>
