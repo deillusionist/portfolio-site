@@ -21,7 +21,7 @@
             position: relative;
         }
         
-        /* Add grain effect */
+        /* Grain and abstract blur effect */
         body::before {
             content: "";
             position: absolute;
@@ -30,11 +30,12 @@
             width: 100%;
             height: 100%;
             background: url('https://www.transparenttextures.com/patterns/noise.png');
-            opacity: 0.1;
+            opacity: 0.2;
+            filter: blur(8px);
             pointer-events: none;
         }
         
-        /* Blurred and distorted gradient */
+        /* Additional blurred electric blue gradient */
         body::after {
             content: "";
             position: absolute;
@@ -42,8 +43,8 @@
             left: 50%;
             width: 80%;
             height: 80%;
-            background: radial-gradient(circle, rgba(70, 130, 180, 0.4), transparent);
-            filter: blur(50px);
+            background: radial-gradient(circle, rgba(70, 130, 180, 0.3), transparent);
+            filter: blur(60px) contrast(1.2);
             transform: translate(-50%, -50%) skewX(-10deg);
             pointer-events: none;
         }
@@ -86,28 +87,24 @@
             position: relative;
         }
         
-        /* Abstract size and arrangement */
-        .portfolio img:nth-child(odd) {
-            grid-column: span 2;
+        /* Glowing halo animation behind photos */
+        .portfolio img {
+            position: relative;
         }
-        .portfolio img:nth-child(even) {
-            grid-row: span 2;
-        }
-        
-        /* Glowing hover effect */
         .portfolio img:hover {
             transform: scale(1.05);
-            filter: brightness(1.05);
         }
-        .portfolio img:hover::before {
+        .portfolio img:hover::after {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 120%;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
-            animation: sparkle 2s infinite alternate;
+            filter: blur(20px);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
         }
         
         .instagram {
@@ -124,7 +121,7 @@
         
         /* Cursor customization */
         body {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50%" font-size="100" fill="silver">✦</text></svg>'), auto;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50%" font-size="60" fill="silver">✦</text></svg>'), auto;
         }
     </style>
 </head>
