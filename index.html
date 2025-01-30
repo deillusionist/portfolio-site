@@ -60,11 +60,6 @@
             animation: flicker 1.5s infinite alternate, sparkle 2s infinite alternate;
         }
         
-        @keyframes flicker {
-            0% { opacity: 1; }
-            100% { opacity: 0.8; }
-        }
-        
         @keyframes sparkle {
             0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
             100% { text-shadow: 0 0 20px rgba(255, 255, 255, 1); }
@@ -72,7 +67,7 @@
         
         .portfolio {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             width: 80%;
             max-width: 1200px;
