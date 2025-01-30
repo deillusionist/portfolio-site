@@ -19,20 +19,33 @@
             min-height: 100vh;
             overflow-y: auto;
             position: relative;
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50%" font-size="80" fill="silver">✦</text></svg>'), auto;
         }
         
+        /* Add grain effect */
         body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/noise.png');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        /* Blurred and distorted gradient */
+        body::after {
             content: "";
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 80vw;
-            height: 80vh;
-            background: radial-gradient(circle, rgba(0, 100, 255, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
-            transform: translate(-50%, -50%);
-            filter: blur(80px);
-            z-index: -1;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(70, 130, 180, 0.4), transparent);
+            filter: blur(50px);
+            transform: translate(-50%, -50%) skewX(-10deg);
+            pointer-events: none;
         }
         
         header {
@@ -58,8 +71,8 @@
         
         .portfolio {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
             width: 80%;
             max-width: 1200px;
             padding: 20px;
@@ -70,11 +83,31 @@
             height: auto;
             border-radius: 0;
             transition: transform 0.4s ease, filter 0.4s ease;
+            position: relative;
         }
         
+        /* Abstract size and arrangement */
+        .portfolio img:nth-child(odd) {
+            grid-column: span 2;
+        }
+        .portfolio img:nth-child(even) {
+            grid-row: span 2;
+        }
+        
+        /* Glowing hover effect */
         .portfolio img:hover {
             transform: scale(1.05);
             filter: brightness(1.05);
+        }
+        .portfolio img:hover::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            animation: sparkle 2s infinite alternate;
         }
         
         .instagram {
@@ -84,10 +117,14 @@
             font-family: 'UnifrakturCook', cursive;
             color: silver;
         }
-        
         .instagram a {
             text-decoration: none;
             color: silver;
+        }
+        
+        /* Cursor customization */
+        body {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50%" font-size="100" fill="silver">✦</text></svg>'), auto;
         }
     </style>
 </head>
