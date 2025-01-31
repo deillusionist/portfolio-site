@@ -257,7 +257,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const starContainer = document.querySelector(".starry-background");
-            for (let i = 0; i < 50; i++) { // Number of stars
+            for (let i = 0; i < 100; i++) { // Number of stars
                 let star = document.createElement("div");
                 star.className = "star";
                 let size = Math.random() * 3 + 1; // Random size between 1px-4px
@@ -267,7 +267,7 @@
                 star.style.height = `${size}px`;
                 star.style.top = `${y}%`;
                 star.style.left = `${x}%`;
-                star.style.animationDuration = `${Math.random() * 3 + 2}s`; // Random twinkle speed
+                star.style.animationDuration = `${Math.random() * 4 + 2}s`; // Random twinkle speed
                 starContainer.appendChild(star);
             }
         });
