@@ -126,7 +126,23 @@
         
         /* Cursor customization */
         body {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50%" font-size="60" fill="silver">✦</text></svg>'), auto;
+            cursor: none; /* Hides default cursor */
+        }
+
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            font-size: 20px;
+            text-shadow: 0 0 10px rgba(0, 174, 255, 1), 0 0 20px rgba(0, 174, 255, 0.8);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: cursorGlow 1.5s infinite alternate;
+        }
+
+        @keyframes cursorGlow {
+            0% { text-shadow: 0 0 5px rgba(0, 174, 255, 0.8), 0 0 10px rgba(0, 174, 255, 0.6); }
+            100% { text-shadow: 0 0 15px rgba(0, 174, 255, 1), 0 0 25px rgba(0, 174, 255, 0.9); }
         }
     </style>
 </head>
@@ -204,5 +220,13 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
     </style>
+    <div class="custom-cursor">✦</div>
+    <script>
+        document.addEventListener("mousemove", (e) => {
+            const cursor = document.querySelector(".custom-cursor");
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+    </script>
 </body>
 </html>
