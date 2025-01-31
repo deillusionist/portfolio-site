@@ -148,6 +148,13 @@
 </head>
 <body>
     <div class="background-gradient"></div>
+    <script>
+        document.addEventListener("mousemove", (e) => {
+            const cursor = document.querySelector(".custom-cursor");
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+    </script>
     <header>DEILLUSIONIST</header>
     <section class="portfolio">
         <img src="assets/photo40.jpg" alt="Car 1">
@@ -221,12 +228,5 @@
         }
     </style>
     <div class="custom-cursor">✦</div>
-    <script>
-        document.addEventListener("mousemove", (e) => {
-            const cursor = document.querySelector(".custom-cursor");
-            cursor.style.left = `${e.clientX}px`;
-            cursor.style.top = `${e.clientY}px`;
-        });
-    </script>
 </body>
 </html>
