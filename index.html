@@ -189,7 +189,7 @@
             border-radius: 50%;
             box-shadow: 0 0 6px white;
             opacity: 0;
-            animation: shooting-star 2s linear;
+            animation: shooting-star 3s linear;
         }
     </style>
 </head>
@@ -316,7 +316,7 @@
 
         // Generate shooting stars randomly (every 3-10 seconds)
         setInterval(() => {
-            if (Math.random() < 0.7) { // 50% chance of spawning a star
+            if (Math.random() < 0.7) { // 70% chance of spawning a star
                 createShootingStar();
             }
         }, Math.random() * 7000 + 3000);
