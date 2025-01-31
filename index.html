@@ -135,11 +135,55 @@
         body {
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50%" font-size="60" fill="silver">✦</text></svg>'), auto;
         }
+
+        /* Starry background effect */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .starry-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        /* Randomly place stars */
+        .starry-background .star:nth-child(1) { width: 2px; height: 2px; top: 10%; left: 20%; animation-duration: 2.5s; }
+        .starry-background .star:nth-child(2) { width: 3px; height: 3px; top: 30%; left: 80%; animation-duration: 3s; }
+        .starry-background .star:nth-child(3) { width: 1.5px; height: 1.5px; top: 50%; left: 40%; animation-duration: 2s; }
+        .starry-background .star:nth-child(4) { width: 2.5px; height: 2.5px; top: 70%; left: 60%; animation-duration: 2.8s; }
+        .starry-background .star:nth-child(5) { width: 3px; height: 3px; top: 85%; left: 15%; animation-duration: 3.2s; }
+        .starry-background .star:nth-child(6) { width: 1px; height: 1px; top: 20%; left: 50%; animation-duration: 2.7s; }
+        .starry-background .star:nth-child(7) { width: 2px; height: 2px; top: 60%; left: 90%; animation-duration: 2.3s; }
+        .starry-background .star:nth-child(8) { width: 1.5px; height: 1.5px; top: 40%; left: 10%; animation-duration: 3s; }
     </style>
 </head>
 <body>
     <div class="background-gradient"></div>
     <header>DEILLUSIONIST</header>
+    <div class="starry-background">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
     <section class="portfolio">
         <img src="assets/photo40.jpg" alt="Car 1">
         <img src="assets/photo42.jpg" alt="Car 2">
