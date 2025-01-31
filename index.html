@@ -76,11 +76,13 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
-            width: 80%;
+            width: 100%;
             max-width: 1200px;
             padding: 20px;
             position: relative;
             z-index: 1;
+            transform: scale(0.7);
+            transform-origin: top center;
         }
         
         .portfolio img {
@@ -96,7 +98,7 @@
             filter: brightness(1);
             transform: scale(1.05);
         }
-        
+
         @keyframes twinkle {
             0%, 100% { opacity: 0.6; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.2); }
