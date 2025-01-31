@@ -169,6 +169,28 @@
         .starry-background .star:nth-child(6) { width: 1px; height: 1px; top: 20%; left: 50%; animation-duration: 2.7s; }
         .starry-background .star:nth-child(7) { width: 2px; height: 2px; top: 60%; left: 90%; animation-duration: 2.3s; }
         .starry-background .star:nth-child(8) { width: 1.5px; height: 1.5px; top: 40%; left: 10%; animation-duration: 3s; }
+
+        @keyframes shooting-star {
+            0% {
+                opacity: 1;
+                transform: translateX(0) translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(200px) translateY(100px) scale(0.5);
+            }
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 6px white;
+            opacity: 0;
+            animation: shooting-star 1s linear;
+        }
     </style>
 </head>
 <body>
@@ -271,6 +293,33 @@
                 starContainer.appendChild(star);
             }
         });
+    </script>
+    <script>
+        function createShootingStar() {
+            const star = document.createElement("div");
+            star.classList.add("shooting-star");
+
+            // Random start position
+            let startX = Math.random() * window.innerWidth;
+            let startY = Math.random() * (window.innerHeight * 0.5); // Only from the upper half
+
+            star.style.left = `${startX}px`;
+            star.style.top = `${startY}px`;
+
+            document.body.appendChild(star);
+
+            // Remove star after animation
+            setTimeout(() => {
+                star.remove();
+            }, 1000);
+        }
+
+        // Generate shooting stars randomly (every 3-10 seconds)
+        setInterval(() => {
+            if (Math.random() < 0.5) { // 50% chance of spawning a star
+                createShootingStar();
+            }
+        }, Math.random() * 7000 + 3000);
     </script>
 </body>
 </html>
