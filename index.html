@@ -15,7 +15,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
             overflow-y: auto;
             position: relative;
@@ -83,8 +82,7 @@
             z-index: 1;
             transform: scale(0.85);
             transform-origin: top center;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
+            flex-grow: 1;
         }
 
         .portfolio::after {
@@ -139,6 +137,13 @@
         .instagram a:hover {
             color: white;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        footer {
+            text-align: center;
+            width: 100%;
+            margin-top: auto;
+            padding-bottom: 20px;
         }
         
         /* Cursor customization */
@@ -259,12 +264,14 @@
         <img src="assets/photo38.jpg" alt="Car 40">
         <img src="assets/photo39.jpg" alt="Car 41">
     </section>
+<footer>
     <section class="instagram">
         <p><a href="https://www.instagram.com/deillusionist/" target="_blank">ig: @deillusionist</a></p>
     </section>
     <section class="contact">
         <p><a href="mailto:onika.ksyusha@gmail.com">contact me</a></p>
     </section>
+</footer>
     
     <style>
         .contact {
