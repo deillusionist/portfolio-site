@@ -333,10 +333,10 @@
 
         // Generate shooting stars randomly (every 3-10 seconds)
         setInterval(() => {
-            if (Math.random() < 0.10) { // 100% chance of spawning a star
+            if (Math.random() < 0.50) { // 50% chance of spawning a star
                 createShootingStar();
             }
-        }, Math.random() * 7000 + 3000);
+        }, Math.random() * 1000 + 500); // Random interval between 0.5 and 1.5 seconds
     </script>
 </body>
 </html>
