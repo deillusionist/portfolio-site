@@ -369,8 +369,8 @@
 
     <script>
         function openLightbox(imgElement) {
-            var lightbox = document.getElementById("lightbox");
-            var lightboxImg = document.getElementById("lightbox-img");
+            let lightbox = document.getElementById("lightbox");
+            let lightboxImg = document.getElementById("lightbox-img");
 
             lightbox.style.display = "flex";
             lightboxImg.src = imgElement.src;
@@ -380,5 +380,9 @@
             document.getElementById("lightbox").style.display = "none";
         }
     </script>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img">
+    </div>
 </body>
 </html>
