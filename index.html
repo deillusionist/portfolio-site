@@ -1,397 +1,650 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>deillusionist | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=New+Rocker&family=UnifrakturCook:wght@700&family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background: black;
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            overflow-y: auto;
-            position: relative;
-            overflow-x: hidden;
-        }
-        
-        /* Grain and abstract blur effect */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/noise.png');
-            opacity: 0.3;
-            filter: blur(10px);
-            pointer-events: none;
-        }
-        
-        /* Background gradient only */
-        .background-gradient {
-            position: fixed;
-            top: 75%;
-            left: 50%;
-            width: 100vw;
-            max-width: 100%;
-            height: 25vh;
-            background: linear-gradient(45deg, rgba(80, 120, 200, 0.3) 10%, rgba(60, 100, 180, 0.5) 30%, rgba(90, 140, 200, 0.7) 50%, rgba(40, 80, 150, 0.8) 70%, rgba(10, 10, 50, 0.9) 90%);
-            filter: blur(25px) contrast(1.2);
-            transform: translate(-50%, -50%) rotate(0deg);
-            pointer-events: none;
-            z-index: -1;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>deillusionist</title>
+  <style>
+    @font-face {
+      font-family: "Futura Portfolio";
+      src: url("fonts/FuturaPT-LightObl.ttf") format("truetype");
+      font-weight: 300;
+      font-style: oblique;
+      font-display: swap;
+    }
 
-        .portfolio, .instagram {
-            max-width: 60vw;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 0;
-            font-size: 3rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-family: 'New Rocker', cursive;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-            animation: flicker 1.5s infinite alternate, sparkle 2s infinite alternate;
-        }
+    :root {
+      --paper: #e3e3e0;
+      --ink: #111111;
+      --muted: #5c5c5a;
+      --line: rgba(17, 17, 17, 0.55);
+      --modal: rgba(227, 227, 224, 0.94);
+      --font: "Futura Portfolio", Futura, "Trebuchet MS", Arial, sans-serif;
+    }
 
-        @media only screen and (max-width: 768px) {
-            header {
-                font-size: 2rem;
-                padding: 20px 0;
-            }
-        }
-        
-        @keyframes sparkle {
-            0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
-            100% { text-shadow: 0 0 20px rgba(255, 255, 255, 1); }
-        }
-        
-        .portfolio {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            width: 100%;
-            max-width: 70vw;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-            flex-grow: 1;
-        }
+    * { box-sizing: border-box; }
 
-        .portfolio::after {
-            content: "";
-            display: block;
-            clear: both;
-        }
-        
-        .portfolio img {
-            width: 95%;
-            height: auto;
-            object-fit: contain;
-            border-radius: 0;
-            filter: brightness(0.7);
-            transition: transform 0.4s ease, filter 0.4s ease;
-            position: relative;
-        }
-        
-        .portfolio img:hover {
-            filter: brightness(1);
-            transform: scale(1.05);
-        }
+    html { scroll-behavior: smooth; }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.6; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-        
-        .portfolio img:hover::before {
-            content: "✦";
-            position: absolute;
-            top: 10%;
-            left: 10%;
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            animation: twinkle 1.5s infinite alternate;
-        }
-        
-        .instagram {
-            margin-top: 0px;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-            text-align: center;
-            font-family: 'UnifrakturCook', cursive;
-            color: silver;
-            z-index: 1;
-        }
-        .instagram a {
-            text-decoration: none;
-            color: silver;
-        }
-        
-        .instagram a:hover {
-            color: white;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-        }
+    body {
+      margin: 0;
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: var(--font);
+      font-weight: 300;
+      font-style: oblique;
+      letter-spacing: 0.035em;
+      overflow-x: hidden;
+    }
 
-        footer {
-            text-align: center;
-            width: 100%;
-            margin-top: auto;
-            padding-bottom: 20px;
-        }
-        
-        /* Cursor customization */
-        body {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50%" font-size="60" fill="silver">✦</text></svg>'), auto;
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
 
-        /* Starry background effect */
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.6; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
+      background-image: url("assets/paper-texture.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
 
-        .starry-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -2;
-        }
+      opacity: 1;
+    }
 
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: twinkle 2s infinite alternate;
-        }
+    
 
-        /* Randomly place stars */
-        .starry-background .star:nth-child(1) { width: 2px; height: 2px; top: 10%; left: 20%; animation-duration: 2.5s; }
-        .starry-background .star:nth-child(2) { width: 3px; height: 3px; top: 30%; left: 80%; animation-duration: 3s; }
-        .starry-background .star:nth-child(3) { width: 1.5px; height: 1.5px; top: 50%; left: 40%; animation-duration: 2s; }
-        .starry-background .star:nth-child(4) { width: 2.5px; height: 2.5px; top: 70%; left: 60%; animation-duration: 2.8s; }
-        .starry-background .star:nth-child(5) { width: 3px; height: 3px; top: 85%; left: 15%; animation-duration: 3.2s; }
-        .starry-background .star:nth-child(6) { width: 1px; height: 1px; top: 20%; left: 50%; animation-duration: 2.7s; }
-        .starry-background .star:nth-child(7) { width: 2px; height: 2px; top: 60%; left: 90%; animation-duration: 2.3s; }
-        .starry-background .star:nth-child(8) { width: 1.5px; height: 1.5px; top: 40%; left: 10%; animation-duration: 3s; }
+    a { color: inherit; text-decoration: none; }
 
-        @keyframes shooting-star {
-            0% {
-                opacity: 1;
-                transform: translateX(0) translateY(0) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translateX(200px) translateY(100px) scale(0.5);
-            }
-        }
+    .site-header {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 22px 0 124px;
+      text-align: center;
+      line-height: 0;
+    }
 
-        .shooting-star {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 0 10px white;
-            opacity: 0;
-            animation: shooting-star 3s linear;
-        }
+    .logo {
+      width: min(320px, 58vw);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      padding: 0;
+    }
 
-        /* Lightbox Styles */
-        #lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
+    main {
+      padding-top: 0;
+      width: min(1180px, calc(100% - 34px));
+      margin: 0 auto;
+    }
 
-        #lightbox img {
-            max-width: 80%;
-            max-height: 80%;
-            border-radius: 10px;
-            box-shadow: none
-        }
-        
-        .fslightbox-container,
-        .fslightbox-source,
-        .fslightbox-source img {
-            border-radius: 0 !important;
-            overflow: visible !important;
-        }
-    </style>
+    .gallery-section {
+      padding-bottom: clamp(46px, 7vw, 84px);
+    }
+
+    .gallery-section:first-child {
+      padding-top: 0;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      padding-top: 0;
+      font-size: clamp(16px, 1.7vw, 26px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      font-weight: 300;
+      letter-spacing: 0.015em;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      align-items: start;
+    }
+
+    .photo-card {
+      display: block;
+      width: 100%;
+      margin: 0 0 10px;
+      padding: 0;
+      
+      cursor: zoom-in;
+      line-height: 0;
+      border: 1px solid var(--line);
+      background: transparent;
+      transition: transform 220ms ease, border-color 220ms ease, opacity 220ms ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--ink);
+      opacity: 0.88;
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+.photo-card img {
+      transition: filter 220ms ease, opacity 220ms ease, transform 220ms ease;
+    }
+
+
+    .gallery-section .photo-card img {
+      transition: filter 320ms ease, opacity 320ms ease;
+    }
+
+    .gallery-section:not(.is-active) .photo-card img {
+      filter: grayscale(1);
+      opacity: 1;
+    }
+
+    .gallery-section.is-active .photo-card img {
+      filter: saturate(1) grayscale(0);
+      opacity: 1;
+    }
+
+    .site-footer {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 8px 0 68px;
+      display: flex;
+      justify-content: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .site-footer a { color: var(--ink); }
+    .site-footer a:hover { opacity: 0.62; }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(18px, 4vw, 56px);
+      background: rgba(227, 227, 224, 0.62);
+      backdrop-filter: blur(22px) saturate(0.68);
+      -webkit-backdrop-filter: blur(22px) saturate(0.68);
+    }
+
+
+    .lightbox-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      border: 0 !important;
+      background: transparent !important;
+      color: transparent !important;
+      padding: 0 !important;
+      cursor: zoom-out;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .lightbox-backdrop:hover,
+    .lightbox-backdrop:focus,
+    .lightbox-backdrop:active {
+      background: transparent !important;
+      color: transparent !important;
+      outline: none;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-frame {
+      position: relative;
+      z-index: 1;
+      width: fit-content;
+      max-width: min(96vw, 1500px);
+      max-height: 94vh;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      display: grid;
+      grid-template-rows: minmax(0, auto) auto;
+      gap: 14px;
+      pointer-events: none;
+    }
+
+    .lightbox-image-wrap {
+      position: relative;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 44px minmax(0, auto) 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      pointer-events: auto;
+    }
+
+    .lightbox-nav {
+      position: static;
+      transform: none;
+      z-index: 3;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      background: rgba(227, 227, 224, 0.78);
+      color: var(--ink);
+      font: inherit;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      pointer-events: auto;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .lightbox-prev {
+      justify-self: end;
+    }
+
+    .lightbox-next {
+      justify-self: start;
+    }
+
+    .lightbox-nav:hover,
+    .lightbox-nav:focus {
+      background: var(--ink);
+      color: var(--paper);
+      outline: none;
+    }
+
+    .lightbox img {
+      display: block;
+      max-width: 100%;
+      max-height: calc(94vh - 62px);
+      object-fit: contain;
+      border: 0;
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.18);
+    }
+
+    .lightbox-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      text-transform: uppercase;
+      pointer-events: auto;
+    }
+
+    .lightbox-actions-left,
+    .lightbox-actions-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .lightbox-actions button,
+    .lightbox-actions a {
+      appearance: none;
+      border: 0;
+      background: rgba(227, 227, 224, 0.72);
+      color: var(--ink);
+      font: inherit;
+      font-size: 12px;
+      text-transform: uppercase;
+      padding: 7px 10px;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox-actions button:hover,
+    .lightbox-actions a:hover,
+    .lightbox-nav:hover {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .image-name {
+      display: none;
+    }
+
+    @media (max-width: 1050px) {
+      .gallery {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+    }
+      .photo-card { margin-bottom: 22px; }
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 22px 0 124px;
+      text-align: center;
+      line-height: 0;
+    }
+
+      main,
+.photo-card img {
+      transition: filter 220ms ease, opacity 220ms ease, transform 220ms ease;
+    }
+
+
+    .gallery-section .photo-card img {
+      transition: filter 320ms ease, opacity 320ms ease;
+    }
+
+    .gallery-section:not(.is-active) .photo-card img {
+      filter: grayscale(1);
+      opacity: 1;
+    }
+
+    .gallery-section.is-active .photo-card img {
+      filter: saturate(1) grayscale(0);
+      opacity: 1;
+    }
+
+    .site-footer {
+        width: min(100% - 18px, 1180px);
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .photo-card {
+        padding: 2px;
+        margin-bottom: 0;
+      }
+    }
+      main, .site-footer { width: min(100% - 28px, 1180px); }
+      .gallery { column-count: 2; column-gap: 14px; }
+      .photo-card { margin-bottom: 14px; }
+      .section-title {
+      margin: 0 0 10px;
+      padding-top: 0;
+      font-size: clamp(16px, 1.7vw, 26px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      font-weight: 300;
+      letter-spacing: 0.015em;
+    }
+    }
+
+    @media (max-width: 420px) {
+      .gallery { column-count: 1; }
+      .lightbox-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      text-transform: uppercase;
+      pointer-events: auto;
+    }
+      .lightbox-actions-left,
+      .lightbox-actions-right,
+      .lightbox-actions a,
+      .lightbox-actions button { width: 100%; justify-content: center; text-align: center; }
+
+      .lightbox-nav {
+      position: static;
+      transform: none;
+      z-index: 3;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      background: rgba(227, 227, 224, 0.78);
+      color: var(--ink);
+      font: inherit;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      pointer-events: auto;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+      .lightbox-prev {
+      justify-self: end;
+    }
+
+      .lightbox-next {
+      justify-self: start;
+    }
+    }
+  </style>
 </head>
 <body>
-    <div class="background-gradient"></div>
-    <header>DEILLUSIONIST</header>
-    <div class="starry-background">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
+  <header class="site-header">
+    <img class="logo" src="assets/logo.png" alt="deillusionist logo" />
+  </header>
+
+  <main id="top">
+    <section class="gallery-section is-active" id="ultrace">
+      <h2 class="section-title">ULTRACE</h2>
+      <div class="gallery">
+<button class="photo-card" data-full="assets/ULTRACE_01.jpg" aria-label="Open ULTRACE_01.jpg"><img src="assets/ULTRACE_01.jpg" alt="ULTRACE 01" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_02.jpg" aria-label="Open ULTRACE_02.jpg"><img src="assets/ULTRACE_02.jpg" alt="ULTRACE 02" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_03.jpg" aria-label="Open ULTRACE_03.jpg"><img src="assets/ULTRACE_03.jpg" alt="ULTRACE 03" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_04.jpg" aria-label="Open ULTRACE_04.jpg"><img src="assets/ULTRACE_04.jpg" alt="ULTRACE 04" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_05.jpg" aria-label="Open ULTRACE_05.jpg"><img src="assets/ULTRACE_05.jpg" alt="ULTRACE 05" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_06.jpg" aria-label="Open ULTRACE_06.jpg"><img src="assets/ULTRACE_06.jpg" alt="ULTRACE 06" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_07.jpg" aria-label="Open ULTRACE_07.jpg"><img src="assets/ULTRACE_07.jpg" alt="ULTRACE 07" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_08.jpg" aria-label="Open ULTRACE_08.jpg"><img src="assets/ULTRACE_08.jpg" alt="ULTRACE 08" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_09.jpg" aria-label="Open ULTRACE_09.jpg"><img src="assets/ULTRACE_09.jpg" alt="ULTRACE 09" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_10.jpg" aria-label="Open ULTRACE_10.jpg"><img src="assets/ULTRACE_10.jpg" alt="ULTRACE 10" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_11.jpg" aria-label="Open ULTRACE_11.jpg"><img src="assets/ULTRACE_11.jpg" alt="ULTRACE 11" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_12.jpg" aria-label="Open ULTRACE_12.jpg"><img src="assets/ULTRACE_12.jpg" alt="ULTRACE 12" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_13.jpg" aria-label="Open ULTRACE_13.jpg"><img src="assets/ULTRACE_13.jpg" alt="ULTRACE 13" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_14.jpg" aria-label="Open ULTRACE_14.jpg"><img src="assets/ULTRACE_14.jpg" alt="ULTRACE 14" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_15.jpg" aria-label="Open ULTRACE_15.jpg"><img src="assets/ULTRACE_15.jpg" alt="ULTRACE 15" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_16.jpg" aria-label="Open ULTRACE_16.jpg"><img src="assets/ULTRACE_16.jpg" alt="ULTRACE 16" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_17.jpg" aria-label="Open ULTRACE_17.jpg"><img src="assets/ULTRACE_17.jpg" alt="ULTRACE 17" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_18.jpg" aria-label="Open ULTRACE_18.jpg"><img src="assets/ULTRACE_18.jpg" alt="ULTRACE 18" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_19.jpg" aria-label="Open ULTRACE_19.jpg"><img src="assets/ULTRACE_19.jpg" alt="ULTRACE 19" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_20.jpg" aria-label="Open ULTRACE_20.jpg"><img src="assets/ULTRACE_20.jpg" alt="ULTRACE 20" loading="lazy"></button>
+<button class="photo-card" data-full="assets/ULTRACE_21.jpg" aria-label="Open ULTRACE_21.jpg"><img src="assets/ULTRACE_21.jpg" alt="ULTRACE 21" loading="lazy"></button>
+      </div>
+    </section>
+    <section class="gallery-section" id="japfest">
+      <h2 class="section-title">JAPFEST</h2>
+      <div class="gallery">
+<button class="photo-card" data-full="assets/JAPFEST_01.jpg" aria-label="Open JAPFEST_01.jpg"><img src="assets/JAPFEST_01.jpg" alt="JAPFEST 01" loading="lazy"></button>
+<button class="photo-card" data-full="assets/JAPFEST_02.jpg" aria-label="Open JAPFEST_02.jpg"><img src="assets/JAPFEST_02.jpg" alt="JAPFEST 02" loading="lazy"></button>
+<button class="photo-card" data-full="assets/JAPFEST_03.jpg" aria-label="Open JAPFEST_03.jpg"><img src="assets/JAPFEST_03.jpg" alt="JAPFEST 03" loading="lazy"></button>
+<button class="photo-card" data-full="assets/JAPFEST_04.jpg" aria-label="Open JAPFEST_04.jpg"><img src="assets/JAPFEST_04.jpg" alt="JAPFEST 04" loading="lazy"></button>
+<button class="photo-card" data-full="assets/JAPFEST_05.jpg" aria-label="Open JAPFEST_05.jpg"><img src="assets/JAPFEST_05.jpg" alt="JAPFEST 05" loading="lazy"></button>
+<button class="photo-card" data-full="assets/JAPFEST_06.jpg" aria-label="Open JAPFEST_06.jpg"><img src="assets/JAPFEST_06.jpg" alt="JAPFEST 06" loading="lazy"></button>
+<button class="photo-card" data-full="assets/JAPFEST_07.jpg" aria-label="Open JAPFEST_07.jpg"><img src="assets/JAPFEST_07.jpg" alt="JAPFEST 07" loading="lazy"></button>
+<button class="photo-card" data-full="assets/JAPFEST_08.jpg" aria-label="Open JAPFEST_08.jpg"><img src="assets/JAPFEST_08.jpg" alt="JAPFEST 08" loading="lazy"></button>
+<button class="photo-card" data-full="assets/JAPFEST_09.jpg" aria-label="Open JAPFEST_09.jpg"><img src="assets/JAPFEST_09.jpg" alt="JAPFEST 09" loading="lazy"></button>
+<button class="photo-card" data-full="assets/JAPFEST_10.jpg" aria-label="Open JAPFEST_10.jpg"><img src="assets/JAPFEST_10.jpg" alt="JAPFEST 10" loading="lazy"></button>
+<button class="photo-card" data-full="assets/JAPFEST_11.jpg" aria-label="Open JAPFEST_11.jpg"><img src="assets/JAPFEST_11.jpg" alt="JAPFEST 11" loading="lazy"></button>
+<button class="photo-card" data-full="assets/JAPFEST_12.jpg" aria-label="Open JAPFEST_12.jpg"><img src="assets/JAPFEST_12.jpg" alt="JAPFEST 12" loading="lazy"></button>
+      </div>
+    </section>
+    <section class="gallery-section" id="statement">
+      <h2 class="section-title">STATEMENT</h2>
+      <div class="gallery">
+<button class="photo-card" data-full="assets/STATEMENT_01.jpg" aria-label="Open STATEMENT_01.jpg"><img src="assets/STATEMENT_01.jpg" alt="STATEMENT 01" loading="lazy"></button>
+<button class="photo-card" data-full="assets/STATEMENT_02.jpg" aria-label="Open STATEMENT_02.jpg"><img src="assets/STATEMENT_02.jpg" alt="STATEMENT 02" loading="lazy"></button>
+      </div>
+    </section>
+    <section class="gallery-section" id="popkorn">
+      <h2 class="section-title">POPKORN LVIV</h2>
+      <div class="gallery">
+<button class="photo-card" data-full="assets/POPKORN_01.jpg" aria-label="Open POPKORN_01.jpg"><img src="assets/POPKORN_01.jpg" alt="POPKORN 01" loading="lazy"></button>
+<button class="photo-card" data-full="assets/POPKORN_02.jpg" aria-label="Open POPKORN_02.jpg"><img src="assets/POPKORN_02.jpg" alt="POPKORN 02" loading="lazy"></button>
+<button class="photo-card" data-full="assets/POPKORN_03.jpg" aria-label="Open POPKORN_03.jpg"><img src="assets/POPKORN_03.jpg" alt="POPKORN 03" loading="lazy"></button>
+<button class="photo-card" data-full="assets/POPKORN_04.jpg" aria-label="Open POPKORN_04.jpg"><img src="assets/POPKORN_04.jpg" alt="POPKORN 04" loading="lazy"></button>
+<button class="photo-card" data-full="assets/POPKORN_05.jpg" aria-label="Open POPKORN_05.jpg"><img src="assets/POPKORN_05.jpg" alt="POPKORN 05" loading="lazy"></button>
+<button class="photo-card" data-full="assets/POPKORN_06.jpg" aria-label="Open POPKORN_06.jpg"><img src="assets/POPKORN_06.jpg" alt="POPKORN 06" loading="lazy"></button>
+<button class="photo-card" data-full="assets/POPKORN_07.jpg" aria-label="Open POPKORN_07.jpg"><img src="assets/POPKORN_07.jpg" alt="POPKORN 07" loading="lazy"></button>
+      </div>
+    </section>
+    <section class="gallery-section" id="kyiv">
+      <h2 class="section-title">KYIV</h2>
+      <div class="gallery">
+<button class="photo-card" data-full="assets/KYIV_01.jpg" aria-label="Open KYIV_01.jpg"><img src="assets/KYIV_01.jpg" alt="KYIV 01" loading="lazy"></button>
+<button class="photo-card" data-full="assets/KYIV_02.jpg" aria-label="Open KYIV_02.jpg"><img src="assets/KYIV_02.jpg" alt="KYIV 02" loading="lazy"></button>
+<button class="photo-card" data-full="assets/KYIV_03.jpg" aria-label="Open KYIV_03.jpg"><img src="assets/KYIV_03.jpg" alt="KYIV 03" loading="lazy"></button>
+<button class="photo-card" data-full="assets/KYIV_04.jpg" aria-label="Open KYIV_04.jpg"><img src="assets/KYIV_04.jpg" alt="KYIV 04" loading="lazy"></button>
+<button class="photo-card" data-full="assets/KYIV_05.jpg" aria-label="Open KYIV_05.jpg"><img src="assets/KYIV_05.jpg" alt="KYIV 05" loading="lazy"></button>
+<button class="photo-card" data-full="assets/KYIV_06.jpg" aria-label="Open KYIV_06.jpg"><img src="assets/KYIV_06.jpg" alt="KYIV 06" loading="lazy"></button>
+      </div>
+    </section>
+    <section class="gallery-section" id="film">
+      <h2 class="section-title">35MM FILM</h2>
+      <div class="gallery">
+<button class="photo-card" data-full="assets/FILM_01.jpg" aria-label="Open FILM_01.jpg"><img src="assets/FILM_01.jpg" alt="FILM 01" loading="lazy"></button>
+<button class="photo-card" data-full="assets/FILM_02.jpg" aria-label="Open FILM_02.jpg"><img src="assets/FILM_02.jpg" alt="FILM 02" loading="lazy"></button>
+<button class="photo-card" data-full="assets/FILM_03.jpg" aria-label="Open FILM_03.jpg"><img src="assets/FILM_03.jpg" alt="FILM 03" loading="lazy"></button>
+<button class="photo-card" data-full="assets/FILM_04.jpg" aria-label="Open FILM_04.jpg"><img src="assets/FILM_04.jpg" alt="FILM 04" loading="lazy"></button>
+<button class="photo-card" data-full="assets/FILM_05.jpg" aria-label="Open FILM_05.jpg"><img src="assets/FILM_05.jpg" alt="FILM 05" loading="lazy"></button>
+<button class="photo-card" data-full="assets/FILM_06.jpg" aria-label="Open FILM_06.jpg"><img src="assets/FILM_06.jpg" alt="FILM 06" loading="lazy"></button>
+<button class="photo-card" data-full="assets/FILM_07.jpg" aria-label="Open FILM_07.jpg"><img src="assets/FILM_07.jpg" alt="FILM 07" loading="lazy"></button>
+<button class="photo-card" data-full="assets/FILM_08.jpg" aria-label="Open FILM_08.jpg"><img src="assets/FILM_08.jpg" alt="FILM 08" loading="lazy"></button>
+<button class="photo-card" data-full="assets/FILM_09.jpg" aria-label="Open FILM_09.jpg"><img src="assets/FILM_09.jpg" alt="FILM 09" loading="lazy"></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="https://www.instagram.com/deillusionist/" target="_blank" rel="noreferrer">@deillusionist</a>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-backdrop" id="lightbox-backdrop" aria-label="Close image"></button>
+    <div class="lightbox-frame" role="dialog" aria-modal="true" aria-label="Expanded portfolio image">
+      <div class="lightbox-image-wrap">
+        <button type="button" class="lightbox-nav lightbox-prev" id="prev-image" aria-label="Previous image">←</button>
+        <img id="lightbox-image" src="" alt="Expanded portfolio image" />
+        <button type="button" class="lightbox-nav lightbox-next" id="next-image" aria-label="Next image">→</button>
+      </div>
+      <div class="lightbox-actions">
+        <div class="lightbox-actions-left"></div>
+        <div class="lightbox-actions-right">
+          <a id="open-original" href="#" target="_blank" rel="noreferrer">Open original</a>
+          <a id="download-image" href="#" download>Download</a>
+          <button type="button" id="close-lightbox">Close</button>
+        </div>
+      </div>
     </div>
-    <section class="portfolio">
-        <img src="assets/photo40.jpg" alt="Car 1" onclick="openLightbox(this)">
-        <img src="assets/photo42.jpg" alt="Car 2" onclick="openLightbox(this)">
-        <img src="assets/photo12.jpg" alt="Car 3" onclick="openLightbox(this)">
-        <img src="assets/photo21.jpg" alt="Car 4" onclick="openLightbox(this)">
-        <img src="assets/photo9.jpg" alt="Car 5" onclick="openLightbox(this)">
-        <img src="assets/photo10.jpg" alt="Car 6" onclick="openLightbox(this)">
-        <img src="assets/photo11.jpg" alt="Car 7" onclick="openLightbox(this)">
-        <img src="assets/photo37.jpg" alt="Car 8" onclick="openLightbox(this)">
-        <img src="assets/photo19.jpg" alt="Car 9" onclick="openLightbox(this)">
-        <img src="assets/photo35.jpg" alt="Car 10" onclick="openLightbox(this)">
-        <img src="assets/photo18.jpg" alt="Car 11" onclick="openLightbox(this)">
-        <img src="assets/photo20.jpg" alt="Car 12" onclick="openLightbox(this)">
-        <img src="assets/photo23.jpg" alt="Car 13" onclick="openLightbox(this)">
-        <img src="assets/photo25.jpg" alt="Car 14" onclick="openLightbox(this)">
-        <img src="assets/photo24.jpg" alt="Car 15" onclick="openLightbox(this)">
-        <img src="assets/photo26.jpg" alt="Car 16" onclick="openLightbox(this)">
-        <img src="assets/photo31.jpg" alt="Car 17" onclick="openLightbox(this)">
-        <img src="assets/photo29.jpg" alt="Car 18" onclick="openLightbox(this)">
-        <img src="assets/photo30.jpg" alt="Car 19" onclick="openLightbox(this)">
-        <img src="assets/photo14.jpg" alt="Car 20" onclick="openLightbox(this)">
-        <img src="assets/photo13.jpg" alt="Car 21" onclick="openLightbox(this)">
-        <img src="assets/photo16.jpg" alt="Car 22" onclick="openLightbox(this)">
-        <img src="assets/photo15.jpg" alt="Car 23" onclick="openLightbox(this)">
-        <img src="assets/photo41.jpg" alt="Car 24" onclick="openLightbox(this)">
-        <img src="assets/photo4.jpg" alt="Car 25" onclick="openLightbox(this)">
-        <img src="assets/photo8.jpg" alt="Car 26" onclick="openLightbox(this)">
-        <img src="assets/photo17.jpg" alt="Car 27" onclick="openLightbox(this)">
-        <img src="assets/photo36.jpg" alt="Car 28" onclick="openLightbox(this)">
-        <img src="assets/photo22.jpg" alt="Car 29" onclick="openLightbox(this)">
-        <img src="assets/photo1.jpg" alt="Car 30" onclick="openLightbox(this)">
-        <img src="assets/photo7.jpg" alt="Car 31" onclick="openLightbox(this)">
-        <img src="assets/photo33.jpg" alt="Car 32" onclick="openLightbox(this)">
-        <img src="assets/photo6.jpg" alt="Car 33" onclick="openLightbox(this)">
-        <img src="assets/photo34.jpg" alt="Car 34" onclick="openLightbox(this)">
-        <img src="assets/photo2.jpg" alt="Car 35" onclick="openLightbox(this)">
-        <img src="assets/photo32.jpg" alt="Car 36" onclick="openLightbox(this)">
-        <img src="assets/photo27.jpg" alt="Car 37" onclick="openLightbox(this)">
-        <img src="assets/photo3.jpg" alt="Car 38" onclick="openLightbox(this)">
-        <img src="assets/photo28.jpg" alt="Car 39" onclick="openLightbox(this)">
-        <img src="assets/photo38.jpg" alt="Car 40" onclick="openLightbox(this)">
-        <img src="assets/photo39.jpg" alt="Car 41" onclick="openLightbox(this)">
-    </section>
-<footer>
-    <section class="instagram">
-        <p><a href="https://www.instagram.com/deillusionist/" target="_blank">ig: @deillusionist</a></p>
-    </section>
-    <section class="contact">
-        <p><a href="mailto:onika.ksyusha@gmail.com">contact me</a></p>
-    </section>
-</footer>
-    
-    <style>
-        .contact {
-            margin-top: 0px;
-            text-align: center;
-            font-size: 1.2rem;
-            font-family: 'UnifrakturCook', cursive;
-            color: silver;
+  </div>
+
+  <script>
+    const lightbox = document.querySelector("#lightbox");
+    const lightboxFrame = document.querySelector(".lightbox-frame");
+    const lightboxImage = document.querySelector("#lightbox-image");
+    const openOriginal = document.querySelector("#open-original");
+    const downloadImage = document.querySelector("#download-image");
+    const closeLightbox = document.querySelector("#close-lightbox");
+    const lightboxBackdrop = document.querySelector("#lightbox-backdrop");
+    const prevImage = document.querySelector("#prev-image");
+    const nextImage = document.querySelector("#next-image");
+
+    const photoCards = Array.from(document.querySelectorAll(".photo-card"));
+    let currentImageIndex = 0;
+
+    function updateLightbox(index) {
+      currentImageIndex = (index + photoCards.length) % photoCards.length;
+
+      const card = photoCards[currentImageIndex];
+      const src = card.dataset.full;
+      const img = card.querySelector("img");
+
+      lightboxImage.src = src;
+      lightboxImage.alt = img.alt || "Expanded portfolio image";
+      openOriginal.href = src;
+      downloadImage.href = src;
+      downloadImage.setAttribute("download", src.split("/").pop());
+    }
+
+    function openLightbox(index) {
+      updateLightbox(index);
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      lightboxImage.src = "";
+    }
+
+    photoCards.forEach((card, index) => {
+      card.addEventListener("click", () => {
+        openLightbox(index);
+      });
+    });
+
+    prevImage.addEventListener("click", (event) => {
+      event.stopPropagation();
+      updateLightbox(currentImageIndex - 1);
+    });
+
+    nextImage.addEventListener("click", (event) => {
+      event.stopPropagation();
+      updateLightbox(currentImageIndex + 1);
+    });
+
+    closeLightbox.addEventListener("click", closeModal);
+
+    lightboxBackdrop.addEventListener("click", closeModal);
+
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox.classList.contains("is-open")) return;
+
+      if (event.key === "Escape") closeModal();
+      if (event.key === "ArrowLeft") updateLightbox(currentImageIndex - 1);
+      if (event.key === "ArrowRight") updateLightbox(currentImageIndex + 1);
+    });
+
+    const sections = Array.from(document.querySelectorAll(".gallery-section"));
+
+    function setActiveSection() {
+      const focusLine = window.innerHeight * 0.28;
+      let activeSection = sections[0];
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= focusLine && rect.bottom >= focusLine) {
+          activeSection = section;
         }
-        
-        .contact a {
-            text-decoration: none;
-            color: silver;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-        }
-    
-        .contact a:hover {
-            color: white;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-        }
-    </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const starContainer = document.querySelector(".starry-background");
-            for (let i = 0; i < 100; i++) { // Number of stars
-                let star = document.createElement("div");
-                star.className = "star";
-                let size = Math.random() * 2 + 1; // Random size between 1px-3px
-                let x = Math.random() * 100; // Random left position
-                let y = Math.random() * 100; // Random top position
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.top = `${y}%`;
-                star.style.left = `${x}%`;
-                star.style.animationDuration = `${Math.random() * 4 + 2}s`; // Random twinkle speed
-                starContainer.appendChild(star);
-            }
-        });
-    </script>
-    <script>
-        function createShootingStar() {
-            const star = document.createElement("div");
-            star.classList.add("shooting-star");
+      });
 
-            // Random start position
-            let startX = Math.random() * window.innerWidth;
-            let startY = Math.random() * (window.innerHeight * 0.5); // Only from the upper half
+      sections.forEach((section) => {
+        section.classList.toggle("is-active", section === activeSection);
+      });
+    }
 
-            star.style.left = `${startX}px`;
-            star.style.top = `${startY}px`;
-
-            document.body.appendChild(star);
-
-            // Remove star after animation
-            setTimeout(() => {
-                star.remove();
-            }, 1000);
-        }
-
-        // Generate shooting stars randomly (every 3-10 seconds)
-        setInterval(() => {
-            if (Math.random() < 0.50) { // 50% chance of spawning a star
-                createShootingStar();
-            }
-        }, Math.random() * 1000 + 500); // Random interval between 0.5 and 1.5 seconds
-    </script>
-
-    <script>
-        function openLightbox(imgElement) {
-            let lightbox = document.getElementById("lightbox");
-            let lightboxImg = document.getElementById("lightbox-img");
-
-            lightbox.style.display = "flex";
-            lightboxImg.src = imgElement.src;
-
-            lightboxImg.style.borderRadius = "0";
-        }
-
-        function closeLightbox() {
-            document.getElementById("lightbox").style.display = "none";
-        }
-    </script>
-
-    <div id="lightbox" onclick="closeLightbox()">
-        <img id="lightbox-img">
-    </div>
+    setActiveSection();
+    window.addEventListener("scroll", setActiveSection, { passive: true });
+    window.addEventListener("resize", setActiveSection);
+  </script>
 </body>
 </html>
