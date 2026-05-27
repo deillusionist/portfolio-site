@@ -32,6 +32,7 @@
     html { scroll-behavior: smooth; }
 
     body {
+      position: relative;
       margin: 0;
       background-color: var(--paper);
       color: var(--ink);
@@ -62,8 +63,16 @@
 
     @media (max-width: 768px) {
       body::before {
-        background-size: 100% 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        height: 100%;
+        min-height: 100dvh;
+        background-size: 100% auto;
         background-position: top center;
+        background-repeat: repeat-y;
       }
     }
 
