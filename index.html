@@ -177,7 +177,7 @@
       justify-content: flex-start;
       gap: 24px;
       flex-wrap: wrap;
-      font-size: 11px;
+      font-size: 15px;
       letter-spacing: 0.08em;
       color: var(--muted);
       text-transform: uppercase;
@@ -185,6 +185,10 @@
 
     .site-footer a { color: var(--ink); }
     .site-footer a:hover { opacity: 0.62; }
+
+    .site-footer a {
+      font-size: clamp(14px, 1.2vw, 16px);
+    }
 
     .lightbox {
       position: fixed;
