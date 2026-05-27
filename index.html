@@ -24,6 +24,11 @@
 
     * { box-sizing: border-box; }
 
+    html,
+    body {
+      min-height: 100%;
+    }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -57,7 +62,7 @@
 
     @media (max-width: 768px) {
       body::before {
-        background-size: contain;
+        background-size: 100% 100%;
         background-position: top center;
       }
     }
