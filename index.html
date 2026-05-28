@@ -62,17 +62,14 @@
 
 
   @media (max-width: 768px) {
-  html,
-  body {
-    background-color: var(--paper);
-    background-image: url("assets/paper-texture.jpg");
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-  }
-
   body::before {
-    display: none;
+    position: fixed;
+    inset: 0;
+    height: 100dvh;
+    min-height: 100dvh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 
