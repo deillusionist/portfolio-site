@@ -177,7 +177,7 @@
       justify-content: flex-start;
       gap: 24px;
       flex-wrap: wrap;
-      font-size: 16px;
+      font-size: 20px;
       letter-spacing: 0.08em;
       color: var(--muted);
       text-transform: uppercase;
@@ -187,7 +187,7 @@
     .site-footer a:hover { opacity: 0.62; }
 
     .site-footer a {
-      font-size: clamp(14px, 1.05vw, 17px);
+      font-size: clamp(18px, 1.45vw, 22px);
     }
 
     .lightbox {
@@ -198,26 +198,10 @@
       align-items: center;
       justify-content: center;
       padding: clamp(18px, 4vw, 56px);
-      background: rgba(227, 227, 224, 0.36);
-      backdrop-filter: blur(7px) saturate(0.88);
-      -webkit-backdrop-filter: blur(7px) saturate(0.88);
+      background: rgba(160, 160, 156, 0.34);
+      backdrop-filter: blur(4px) saturate(0.92);
+      -webkit-backdrop-filter: blur(4px) saturate(0.92);
     }
-
-    .lightbox::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.22;
-      background-image:
-        radial-gradient(circle at 18% 28%, rgba(0, 0, 0, 0.16) 0 0.55px, transparent 0.95px),
-        radial-gradient(circle at 74% 62%, rgba(0, 0, 0, 0.12) 0 0.7px, transparent 1.1px),
-        radial-gradient(circle at 42% 84%, rgba(255, 255, 255, 0.22) 0 0.7px, transparent 1.2px);
-      background-size: 4px 4px, 7px 7px, 11px 11px;
-      mix-blend-mode: multiply;
-    }
-
 
     .lightbox-backdrop {
       position: fixed;
@@ -279,7 +263,7 @@
       display: grid;
       place-items: center;
       border: 0;
-      background: rgba(227, 227, 224, 0.58);
+      background: rgba(227, 227, 224, 0.78);
       color: var(--ink);
       font: inherit;
       font-size: 24px;
@@ -340,7 +324,7 @@
     .lightbox-actions a {
       appearance: none;
       border: 0;
-      background: rgba(227, 227, 224, 0.56);
+      background: rgba(227, 227, 224, 0.72);
       color: var(--ink);
       font: inherit;
       font-size: 12px;
@@ -453,7 +437,7 @@
       display: grid;
       place-items: center;
       border: 0;
-      background: rgba(227, 227, 224, 0.58);
+      background: rgba(227, 227, 224, 0.78);
       color: var(--ink);
       font: inherit;
       font-size: 24px;
