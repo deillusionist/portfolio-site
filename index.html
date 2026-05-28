@@ -61,17 +61,18 @@
     
 
 
-    @media (max-width: 768px) {
-  body::before {
-    position: fixed;
-    top: -20vh;
-    left: 0;
-    right: 0;
-    bottom: -20vh;
-
+  @media (max-width: 768px) {
+  html {
+    background-image: url("assets/paper-texture.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: var(--paper);
+  }
+
+  body::before {
+    display: none;
   }
 }
 
