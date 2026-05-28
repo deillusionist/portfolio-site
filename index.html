@@ -63,16 +63,13 @@
 
     @media (max-width: 768px) {
       body::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: auto;
-        height: 100%;
+        position: fixed;
+        inset: 0;
+        height: 100dvh;
         min-height: 100dvh;
-        background-size: 100% auto;
-        background-position: top center;
-        background-repeat: repeat-y;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
       }
     }
 
